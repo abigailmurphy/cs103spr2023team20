@@ -92,7 +92,7 @@ def ariasmith():
         <p>Aria Smith is currently a senior at Brandeis University who has a passion for baked 
         goods. She loves anything that has to do with pies and that is her main focus for each 
         recipe. She is responsible for the pie generator section for this recipe app as well as
-        general structure and setup.</p>
+        web app structure and openai gptkey setup in code.</p>
     '''
 @app.route('/abbiemurphy')
 def abbiemurphy():
