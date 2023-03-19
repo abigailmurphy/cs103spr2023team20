@@ -38,7 +38,6 @@ class GPT():
             answer = getResponse("What is the typical baking temperature for " + prompt.strip("temperature")
         if "time" in prompt:
             answer = getResponse("How long should I bake " + prompt.strip("time")
-    
         return answer
                                  
     def getResponse(self,prompt):
