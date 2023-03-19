@@ -18,6 +18,7 @@ On Windows:
 % python gpt.py
 '''
 import openai
+import os
 
 
 class GPT():
@@ -26,7 +27,8 @@ class GPT():
         ''' store the apikey in an instance variable '''
         self.apikey=apikey
         # Set up the OpenAI API client
-        openai.api_key = apikey #os.environ.get('APIKEY')
+        
+        openai.api_key = os.environ.get('APIKEY')
 
         # Set up the model and prompt
         self.model_engine = "text-davinci-003"
@@ -51,19 +53,15 @@ class GPT():
             temperature=0.8,
         )
 
-    def get_pie_recipe(self,prompt):
-        ''' Generate pie recipes when asked for a specific type of pie '''
-        completion = openai.Completion.create(
-            engine=self.model_engine,
-            prompt=prompt,
-            max_tokens=1024,
-            n=1,
-            stop=None,
-            temperature=0.8,
-        )
-
         response = completion.choices[0].text
         return response
+
+    def get_pie_recipe(self,prompt):
+        ''' Generate pie recipes when asked for a specific type of pie '''
+
+        recipe = self.getResponse(prompt + " pie recipe ")
+        return recipe 
+        
     
             
             

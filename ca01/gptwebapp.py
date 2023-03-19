@@ -26,21 +26,31 @@ app = Flask(__name__)
 gptAPI = GPT(os.environ.get('APIKEY'))
 
 # Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = b'_5#y2L"F4Q789789uioujkkljkl...8z\n\xec]/'
+#app.secret_key = b'_5#y2L"F4Q789789uioujkkljkl...8z\n\xec]/'
 
 @app.route('/')
 def home():
     ''' display a link to the general query page '''
     print('processing / route')
     return f'''
-        <h1>GPT Demo</h1>
-        <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
         <h2>About Page</h2>
         <a href="{url_for('about')}">About Recipe Generator</a>
         <h2>Team</h2>
-        <a href="{url_for('index')}">Group Members</a>
+        <a href="{url_for('team')}">Group Member Bios</a>
+        <h2>Index</h2>
+        <a href="{url_for('index')}">Group Member GPT Pages</a>
+    '''
+
+@app.route('/index')
+def index():
+    ''' display group member gpt pages '''
+    print('processing / index')
+    return f'''
         <h2>Get Cooking</h2>
-        <a href="{url_for('time_temp')}">Find the appropriate baking time/temperature</a>
+        <ul>
+        <li><a href="{url_for('time_temp')}">Find the appropriate baking time/temperature</a></li>
+        <li><a href="{url_for('get_pie_recipe')}">Find your favorite pie recipe!</a><li>
+        </ul>
     '''
 
 @app.route('/about')
@@ -53,18 +63,18 @@ def about():
         Group 20's application will be able to request for any type of desert recipe.</p>
     '''
 
-@app.route('/index')
-def index():
-    ''' display the about page '''
-    print('processing / index')
+@app.route('/team')
+def team():
+    ''' display team bios '''
+    print('processing / team')
     return f'''
        <h1>Group 20 (The Team)</h1>
        <p>Group 20 members is comprised of three computer science ladies aimed at providing 
        user scentric web applications for the whole of spring semester 2023. These 
        amazing developers include:</p>
        <ul>
-       <i><a href="{url_for('ariasmith')}">Aria Smith</a></i>
-       <i><a href="{url_for('abbiemurphy')}">AbbieMurphy</a></i>
+       <li><a href="{url_for('ariasmith')}">Aria Smith</a></li>
+       <li><a href="{url_for('abbiemurphy')}">AbbieMurphy</a></li>
        </ul>
     '''
 
@@ -111,32 +121,31 @@ def time_temp():
     else:
         return 'unknown HTTP method: ' +str(request.method)
     
-@app.route('/gptdemo', methods=['GET', 'POST'])
-def gptdemo():
+@app.route('/get_pie_recipe', methods=['GET', 'POST'])
+def get_pie_recipe():
     ''' handle a get request by sending a form 
         and a post request by returning the GPT response
     '''
-    if request.method == 'POST':
-        prompt = request.form['prompt']
-        answer = gptAPI.getResponse(prompt)
-        return f'''
-        <h1>GPT Demo</h1>
-        <pre style="bgcolor:yellow">{prompt}</pre>
-        <hr>
-        Here is the answer in text mode:
-        <div style="border:thin solid black">{answer}</div>
-        Here is the answer in "pre" mode:
-        <pre style="border:thin solid black">{answer}</pre>
-        <a href={url_for('gptdemo')}> make another query</a>
-        '''
-    else:
+
+    if request.method == 'GET':
         return '''
-        <h1>GPT Demo App</h1>
-        Enter your query below
+        <h1>You Never Have Enough Pie</h1>
+        What type of pie would you like a recipe for?
         <form method="post">
             <textarea name="prompt"></textarea>
-            <p><input type=submit value="get response">
+            <p><input type=submit value="get recipe">
         </form>
+        '''
+    else:
+        prompt = request.form['prompt']
+        answer = gptAPI.get_pie_recipe(prompt)
+        return f'''
+        <h1>Your Recipe</h1>
+        <pre style="bgcolor:blue">{prompt}</pre>
+        <hr>
+        Enjoy the recipe:
+        <pre style="border:thin solid black">{answer}</pre>
+        <a href={url_for('get_pie_recipe')}> make another query</a>
         '''
 
 if __name__=='__main__':
