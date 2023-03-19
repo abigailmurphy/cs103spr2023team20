@@ -31,15 +31,14 @@ class GPT():
         # Set up the model and prompt
         self.model_engine = "text-davinci-003"
 
-    
-    def getCookingTimeTemp(self,prompt):
+        
+    def getCookingTimeTemp(self, prompt):
         '''Takes user input for GPT response'''
         if "temperature" in prompt:
-            answer = self.getResponse("What is the typical baking temperature for " + prompt.strip("temperature")
+            answer = self.getResponse("What is the typical baking temperature for " + prompt.strip("temperature"))
         if "time" in prompt:
-            answer = self.getResponse("How long should I bake " + prompt.strip("time")
-        return answer
-                                 
+            answer = self.getResponse("How long should I bake " + prompt.strip("time"))
+        return answer                             
     def getResponse(self,prompt):
         ''' Generate a GPT response '''
         completion = openai.Completion.create(
