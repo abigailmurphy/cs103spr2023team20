@@ -67,6 +67,7 @@ def index():
        <ul>
        <i><a href="{url_for('ariasmith')}">Aria Smith</a></i><br>
        <i><a href="{url_for('abbiemurphy')}">AbbieMurphy</a></i><br>
+       <i><a href="{url_for('monicaiizuka')}">Monica Iizuka</a></i><br>
        </ul>
     '''
 
