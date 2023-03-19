@@ -41,7 +41,7 @@ def home():
         <a href="{url_for('index')}">Group Members</a>
         <h2>Get Cooking</h2>
         <a href="{url_for('time_temp')}">Find the appropriate baking time/temperature</a>
-    '''
+     '''
 
 @app.route('/about')
 def about():
