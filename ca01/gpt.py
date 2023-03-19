@@ -38,7 +38,8 @@ class GPT():
             answer = self.getResponse("What is the typical baking temperature for " + prompt.strip("temperature"))
         if "time" in prompt:
             answer = self.getResponse("How long should I bake " + prompt.strip("time"))
-        return answer                             
+        return answer
+    
     def getResponse(self,prompt):
         ''' Generate a GPT response '''
         completion = openai.Completion.create(
