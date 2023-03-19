@@ -66,7 +66,7 @@ def index():
        amazing developers include:</p>
        <ul>
        <i><a href="{url_for('ariasmith')}">Aria Smith</a></i><br>
-       <i><a href="{url_for('abbiemurphy')}">AbbieMurphy</a></i>
+       <i><a href="{url_for('abbiemurphy')}">AbbieMurphy</a></i><br>
        </ul>
     '''
 
