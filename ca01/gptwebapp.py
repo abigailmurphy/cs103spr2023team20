@@ -33,7 +33,7 @@ def home():
     ''' display a link to the general query page '''
     print('processing / route')
     return f'''
-        <h1>GPT Demo</h1>
+        <h1>Brandeis Bakers</h1>
         <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
         <h2>About Page</h2>
         <a href="{url_for('about')}">About Recipe Generator</a>
