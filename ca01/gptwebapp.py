@@ -62,6 +62,7 @@ def index():
        amazing developers include:</p>
        <ul>
        <i><a href="{url_for('ariasmith')}">Aria Smith</a></i>
+       <i><a href="{url_for('abbiemurphy')}">AbbieMurphy</a></i>
        </ul>
     '''
 
@@ -77,7 +78,17 @@ def ariasmith():
         recipe. She is responsible for the pie generator section for this recipe app as well as
         general structure and setup.</p>
     '''
-
+@app.route('/abbiemurphy')
+def abbiemurphy():
+    ''' team member '''
+    print('processing / abbiemurphy')
+    return f'''
+        <h2>Abbie Murphy</h2>
+        <p>Abbie Murphy is a junior at Brandeis University who gained her footing baking with her 
+        mother and long-time family friend. Her go-to baking projects were always different types
+        of cookies, inspiring her to specialize for this app. Abbie created the repository and added 
+        each teammate to the group.</p>
+    '''
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
     ''' handle a get request by sending a form 
