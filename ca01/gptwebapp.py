@@ -89,6 +89,25 @@ def abbiemurphy():
         of cookies, inspiring her to specialize for this app. Abbie created the repository and added 
         each teammate to the group.</p>
     '''
+@app.route('/time_temp', methods =['GET', 'POST'])
+def time_temp():
+    ''' takes in a baked good and temperature or time request
+        and sends to GPT for response
+    '''
+    if request.method == 'GET':
+        return '''
+        <form method="POST" action="/time_temp">
+          Enter the baked good you would like to know about, followed by "time" or "temperature": <input type="text" name="num"><br>
+          <input type="submit">
+        </form>
+        '''
+    elif request.method == 'POST':
+        question=int(request.form['question'])
+        answer = gpt.getCookingTimeTemp(question)
+        return factors
+    else:
+        return 'unknown HTTP method: ' +str(request.method)
+    
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
     ''' handle a get request by sending a form 
