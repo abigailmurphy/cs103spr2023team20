@@ -33,14 +33,16 @@ def home():
     ''' display a link to the general query page '''
     print('processing / route')
     return f'''
+        <div style="text-align:center">
         <h1>Brandeis Bakers</h1>
         <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
         <h2>About Page</h2>
         <a href="{url_for('about')}">About Recipe Generator</a>
         <h2>Team</h2>
         <a href="{url_for('index')}">Group Members</a>
-        <h2>Get Cooking</h2>
+        <h2>Get Cooking<centre></h2>
         <a href="{url_for('time_temp')}">Find the appropriate baking time/temperature</a>
+        </div>
      '''
 
 @app.route('/about')
