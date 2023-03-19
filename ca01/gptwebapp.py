@@ -39,6 +39,8 @@ def home():
         <a href="{url_for('about')}">About Recipe Generator</a>
         <h2>Team</h2>
         <a href="{url_for('index')}">Group Members</a>
+        <h2>Get Cooking</h2>
+        <a href="{url_for('time_temp')}">Find the appropriate baking time/temperature</a>
     '''
 
 @app.route('/about')
@@ -62,6 +64,7 @@ def index():
        amazing developers include:</p>
        <ul>
        <i><a href="{url_for('ariasmith')}">Aria Smith</a></i>
+       <i><a href="{url_for('abbiemurphy')}">AbbieMurphy</a></i>
        </ul>
     '''
 
@@ -77,7 +80,37 @@ def ariasmith():
         recipe. She is responsible for the pie generator section for this recipe app as well as
         general structure and setup.</p>
     '''
-
+@app.route('/abbiemurphy')
+def abbiemurphy():
+    ''' team member '''
+    print('processing / abbiemurphy')
+    return f'''
+        <h2>Abbie Murphy</h2>
+        <p>Abbie Murphy is a junior at Brandeis University who gained her footing baking with her 
+        mother and long-time family friend. Her go-to baking projects were always different types
+        of cookies but has been known to ocassionally burn her recipies, inspiring her to help others 
+        with this problem. Abbie created the repository and added each teammate to the group.</p>
+    '''
+@app.route('/time_temp', methods =['GET', 'POST'])
+def time_temp():
+    ''' takes in a baked good and temperature or time request
+        and sends to GPT for response
+    '''
+    if request.method == 'GET':
+        return '''
+        <h1>There is no burn in baking!</h1>
+        <form method="POST" action="/time_temp">
+          Enter the baked good you would like to know about, followed by "time" or "temperature": <input type="text" name="num"><br>
+          <input type="submit" value="get response">
+        </form>
+        '''
+    elif request.method == 'POST':
+        question=int(request.form['question'])
+        answer = gptAPI.getCookingTimeTemp(question)
+        return factors
+    else:
+        return 'unknown HTTP method: ' +str(request.method)
+    
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
     ''' handle a get request by sending a form 
