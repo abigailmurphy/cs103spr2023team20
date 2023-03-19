@@ -90,7 +90,7 @@ def abbiemurphy():
         each teammate to the group.</p>
     '''
 @app.route('/time_temp', methods =['GET', 'POST'])
-def time_temp():
+def form_time_temp():
     ''' takes in a baked good and temperature or time request
         and sends to GPT for response
     '''
