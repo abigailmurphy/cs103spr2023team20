@@ -65,7 +65,7 @@ def index():
        user scentric web applications for the whole of spring semester 2023. These 
        amazing developers include:</p>
        <ul>
-       <i><a href="{url_for('ariasmith')}">Aria Smith</a></i>
+       <i><a href="{url_for('ariasmith')}">Aria Smith</a></i><br>
        <i><a href="{url_for('abbiemurphy')}">AbbieMurphy</a></i>
        </ul>
     '''
