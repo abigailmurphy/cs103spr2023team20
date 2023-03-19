@@ -33,12 +33,15 @@ def home():
     ''' display a link to the general query page '''
     print('processing / route')
     return f'''
+        <div style="text-align:center">
+        <h1>Brandeis Bakers</h1>
         <h2>About Page</h2>
         <a href="{url_for('about')}">About Recipe Generator</a>
         <h2>Team</h2>
         <a href="{url_for('team')}">Group Member Bios</a>
         <h2>Index</h2>
         <a href="{url_for('index')}">Group Member GPT Pages</a>
+        </div>
     '''
 
 @app.route('/index')
@@ -75,6 +78,7 @@ def team():
        <ul>
        <li><a href="{url_for('ariasmith')}">Aria Smith</a></li>
        <li><a href="{url_for('abbiemurphy')}">AbbieMurphy</a></li>
+       <li><a href="{url_for('monicaiizuka')}">Monica Iizuka</a></li>
        </ul>
     '''
 
@@ -100,6 +104,18 @@ def abbiemurphy():
         mother and long-time family friend. Her go-to baking projects were always different types
         of cookies but has been known to ocassionally burn her recipies, inspiring her to help others 
         with this problem. Abbie created the repository and added each teammate to the group.</p>
+    '''
+@app.route('/monicaiizuka')
+def monicaiizuka():
+    '''team member'''
+    print('processing/ monicaiizuka')
+    return f'''
+        <h2>Monica Iizuka</h2>
+        <p>Monica Iizuka is a Junior at Brandeis University who has little to no experience in cooking
+        but loves to bake sweet goods in her free time. Growing up, Monica and her sisters had the tradition 
+        of baking birthday cakes for their family. Now, as a way to reminisce about those memories, she has 
+        chosen to concentrate on various cake recipes. Monica has been assigned the task of creating a cake 
+        recipe generator for the application.</p>
     '''
 @app.route('/time_temp', methods =['GET', 'POST'])
 def time_temp():
