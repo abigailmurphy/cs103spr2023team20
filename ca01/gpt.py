@@ -42,6 +42,17 @@ class GPT():
             temperature=0.8,
         )
 
+    def get_pie_recipe(self,prompt):
+        ''' Generate pie recipes when asked for a specific type of pie '''
+        completion = openai.Completion.create(
+            engine=self.model_engine,
+            prompt=prompt,
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.8,
+        )
+
         response = completion.choices[0].text
         return response
 
