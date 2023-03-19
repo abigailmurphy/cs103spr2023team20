@@ -101,12 +101,12 @@ def time_temp():
         <h1>There is no burn in baking!</h1>
         <form method="POST" action="/time_temp">
           Enter the baked good you would like to know about, followed by "time" or "temperature": <input type="text" name="num"><br>
-          <input type="submit">
+          <input type="submit" value="get response">
         </form>
         '''
     elif request.method == 'POST':
         question=int(request.form['question'])
-        answer = gpt.getCookingTimeTemp(question)
+        answer = gptAPI.getCookingTimeTemp(question)
         return factors
     else:
         return 'unknown HTTP method: ' +str(request.method)
