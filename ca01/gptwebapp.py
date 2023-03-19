@@ -93,6 +93,18 @@ def abbiemurphy():
         of cookies but has been known to ocassionally burn her recipies, inspiring her to help others 
         with this problem. Abbie created the repository and added each teammate to the group.</p>
     '''
+@app.route('/monicaiizuka')
+def monicaiizuka():
+    '''team member'''
+    print('processing/ monicaiizuka')
+    return f'''
+        <h2>Monica Iizuka</h2>
+        <p>Monica Iizuka is a Junior at Brandeis University who has little to no experience in cooking
+        but loves to bake sweet goods in her free time. Growing up, Monica and her sisters had the tradition 
+        of baking birthday cakes for their family. Now, as a way to reminisce about those memories, she has 
+        chosen to concentrate on various cake recipes. Monica has been assigned the task of creating a cake 
+        recipe generator for the application.</p>
+    '''
 @app.route('/time_temp', methods =['GET', 'POST'])
 def time_temp():
     ''' takes in a baked good and temperature or time request
