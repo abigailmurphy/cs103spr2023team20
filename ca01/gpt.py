@@ -44,7 +44,15 @@ class GPT():
 
         response = completion.choices[0].text
         return response
-
+    
+     def getCookingTimeTemp(self, prompt):
+            '''Takes user input for GPT response'''
+            if "temperature" in prompt:
+                return getResponse("What is the typical baking temperature for " + prompt.strip("temperature") 
+            if "time" in prompt:
+                return getResponse("How long should I bake " + prompt.strip("time")
+            
+            
 if __name__=='__main__':
     '''
     '''
