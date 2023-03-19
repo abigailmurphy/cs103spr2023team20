@@ -26,7 +26,7 @@ app = Flask(__name__)
 gptAPI = GPT(os.environ.get('APIKEY'))
 
 # Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = b'_5#y2L"F4Q789789uioujkkljkl...8z\n\xec]/'
+app.secret_key = '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'
 
 @app.route('/')
 def home():
