@@ -53,7 +53,7 @@ def index():
         <ul>
         <li><a href="{url_for('time_temp')}">Find the appropriate baking time/temperature</a></li>
         <li><a href="{url_for('get_pie_recipe')}">Find your favorite pie recipe!</a><li>
-        <a href={url_for('get_cake_recipe')}>"Find your favorite cake recipe!</a><li>
+        <a href={url_for('get_cake_recipe')}">Get your favorite cake recipe!</a><li>
         </ul>
     '''
 
@@ -178,7 +178,8 @@ def get_cake_recipe():
         return '''
         <h1>It Doesn't Have to Be Your B-Day to Eat Cake</h1>
         <form method = "POST" <textarea name="prompt"></textarea>
-        <p><input type=submit value="get recipe">
+        What type of cake would you like the recipe for: <input type="text" name="prompt"><br>
+        <p><input type=submit value="Get Your Recipe">
         </form>
     '''
     elif request.method == 'POST':
