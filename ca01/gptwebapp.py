@@ -178,8 +178,8 @@ def get_cake_recipe():
         return '''
         <h1>It Doesn't Have to Be Your B-Day to Eat Cake</h1>
         <form method = "POST" action="/get_cake_recipe">
-        What type of cake would you like the recipe for: <input type="text" name="prompt"><br>
-        <p><input type=submit value="get recipe">
+        What kind of cake would you like a recipe for: <input type="text" name="prompt"><br>
+        <p><input type=submit value="Get recipe">
         </form>
     '''
     elif request.method == 'POST':
@@ -189,7 +189,7 @@ def get_cake_recipe():
         <h1>Your Recipe</h1>
         <pre style="bgcolor:blue">{prompt}</pre>
         <hr>
-        Enjoy the recipe:
+        Here's your desired recipe!:
         <pre stype="border:thin solid black">{answer}</pre>
         <a href={url_for('get_cake_recipe')}>make another query</a>
         '''
