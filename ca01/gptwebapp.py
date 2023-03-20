@@ -176,10 +176,24 @@ def get_cake_recipe():
     if request.method == 'GET':
         return '''
         <h1>It Doesn't Have to Be Your B-Day to Eat Cake</h1>
-        <form method = "POST" action="/get_cake_recipe">
-        <input type = "submit">
+        <form method = "POST" <textarea name="prompt"></textarea>
+        <p><input type=submit value="get recipe">
         </form>
     '''
+    elif request.method == 'POST':
+        prompt= request.form['prompt']
+        answer = gptAPI.get_apple_recipe(prompt)
+        return f'''
+        <h1>Your Recipe</h1>
+        <pre style="bgcolor:blue">{prompt}</pre>
+        <hr>
+        Enjoy the recipe:
+        <pre stype="border:thin solid black">{answer}</pre>
+        <a href={url_for('get_cake_recipe')}>make another query</a>
+        '''
+    else:
+        return 'unknown HTTP method: '+str(request.method)
+
 if __name__=='__main__':
     # run the code on port 5001, MacOS uses port 5000 for its own service :(
     app.run(debug=True,port=5001)
