@@ -130,12 +130,17 @@ def time_temp():
           <input type="submit" value="get response">
         </form>
         '''
-    elif request.method == 'POST':
-        question=int(request.form['question'])
-        answer = gptAPI.getCookingTimeTemp(question)
-        return factors
     else:
-        return 'unknown HTTP method: ' +str(request.method)
+        prompt=request.form['prompt']
+        answer = gptAPI.getCookingTimeTemp(prompt)
+        return f'''
+        <h1>Your baking instructions:</h1>
+        <pre style="bgcolor:blue">{prompt}</pre>
+        <hr>
+        If all else fails: stop, drop, and roll.
+        <pre style="border:thin solid black">{answer}</pre>
+        <a href={url_for('time_temp')}> make another query</a>
+        '''
     
 @app.route('/get_pie_recipe', methods=['GET', 'POST'])
 def get_pie_recipe():
