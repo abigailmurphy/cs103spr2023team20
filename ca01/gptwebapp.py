@@ -163,7 +163,19 @@ def get_pie_recipe():
         <pre style="border:thin solid black">{answer}</pre>
         <a href={url_for('get_pie_recipe')}> make another query</a>
         '''
-
+@app.route('/get_cake_recipe',methods=['GET','POST'])
+def get_cake_recipe():
+    '''gets an input from a user by prompting for request for a type of cake
+    and returns the GPT response for the recipe
+    '''
+    if request.method == 'GET':
+        return '''
+        <h1>It Doesn't Have to Be Your B-Day to Eat Cake</h1>
+        What type of cake would you like to bake?
+        <form method = "post">
+            <testarea name = "prompt"></textarea>
+    
+    
 if __name__=='__main__':
     # run the code on port 5001, MacOS uses port 5000 for its own service :(
     app.run(debug=True,port=5001)
