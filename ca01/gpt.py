@@ -38,8 +38,10 @@ class GPT():
         '''Takes user input for GPT response'''
         if "temperature" in prompt:
             answer = self.getResponse("What is the typical baking temperature for " + prompt.strip("temperature"))
-        if "time" in prompt:
+        elif "time" in prompt:
             answer = self.getResponse("How long should I bake " + prompt.strip("time"))
+        else:
+            answer = "invalid question: try again"
         return answer
     
     def getResponse(self,prompt):
