@@ -184,7 +184,7 @@ def get_cake_recipe():
     '''
     elif request.method == 'POST':
         prompt= request.form['prompt']
-        answer = gptAPI.get_apple_recipe(prompt)
+        answer = gptAPI.get_cake_recipe(prompt)
         return f'''
         <h1>Your Recipe</h1>
         <pre style="bgcolor:blue">{prompt}</pre>
