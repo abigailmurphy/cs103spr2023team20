@@ -177,9 +177,9 @@ def get_cake_recipe():
     if request.method == 'GET':
         return '''
         <h1>It Doesn't Have to Be Your B-Day to Eat Cake</h1>
-        <form method = "POST" <textarea name="prompt"></textarea>
+        <form method = "POST" action="/get_cake_recipe">
         What type of cake would you like the recipe for: <input type="text" name="prompt"><br>
-        <p><input type=submit value="Get Your Recipe">
+        <p><input type=submit value="get recipe">
         </form>
     '''
     elif request.method == 'POST':
