@@ -62,7 +62,11 @@ class GPT():
         recipe = self.getResponse(prompt + " pie recipe ")
         return recipe 
         
-    
+    def get_cake_recipe(self,prompt):
+        '''Generates cake recipes when a user asked for a specific type of cake
+        that they want a recipe for'''
+        recipe = self.getResponse(prompt + " cake recipe ")
+        return recipe 
             
             
 if __name__=='__main__':
