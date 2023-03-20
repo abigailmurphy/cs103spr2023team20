@@ -53,7 +53,7 @@ def index():
         <ul>
         <li><a href="{url_for('time_temp')}">Find the appropriate baking time/temperature</a></li>
         <li><a href="{url_for('get_pie_recipe')}">Find your favorite pie recipe!</a><li>
-        <a href={url_for('get_cake_recipe')}">Get your favorite cake recipe!</a><li>
+        <a href="{url_for('get_cake_recipe')}">Get your favorite cake recipe!</a><li>
         </ul>
     '''
 
