@@ -127,7 +127,7 @@ def time_temp():
         return '''
         <h1>There is no burn in baking!</h1>
         <form method="POST" action="/time_temp">
-          Enter the baked good you would like to know about, followed by "time" or "temperature": <input type="text" name="num"><br>
+          Enter the baked good you would like to know about, followed by "time" or "temperature": <input type="text" name="prompt"><br>
           <input type="submit" value="get response">
         </form>
         '''
